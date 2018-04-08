@@ -5,10 +5,11 @@ This project contains various attempts at grabbing video from the onboard Jetson
 Briefly:
 
 * yolo.c: Darknet V3 gstreamer pipeline, that also will save stream as mp4, needs libgstyolo.so and libdarknes.so (in the .tgz).
-* yolo_objection_detection.cpp: darknet V2 C++ version,
+* yolopipeline.sh: The slow gst-launch-1.0 version of the pipeline above.
+* yolo_objection_detection.cpp: darknet V2 C++ version.
 * tx2video.cpp: does some cute fancy image transforms.
 
-The yolo app is the most developed. It interleaves annotations which run at about 3FPS with the video stream. Here is a screen shot:
+The yolo.c app is the most developed. It interleaves annotations which run at about 3FPS with the video stream. Here is a screen shot:
 
 <img height=50% width=50% src="./elephant.png"/>
 
