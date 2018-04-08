@@ -7,6 +7,7 @@
  */
 
 #include <stdlib.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -24,7 +25,8 @@ static gboolean bus_call(GstBus *bus,
     
     switch(GST_MESSAGE_TYPE(msg)) {
         case GST_MESSAGE_EOS:
-			gst_element_send_event(pipeline, gst_event_new_eos()); ;
+			g_print("Received EOS\n");;
+			gst_element_set_state(pipeline, GST_STATE_NULL);
 		    g_main_loop_quit(loop);
         break;
 
@@ -56,13 +58,8 @@ static gboolean bus_call(GstBus *bus,
 void intHandler(int dummy) {
 
 	/* Out of the main loop, clean up nicely */
-	g_print ("Stopping...\n");
+	g_print ("Stopping, sending EOS...\n");
 	gst_element_send_event(pipeline, gst_event_new_eos());
-	gst_element_set_state (pipeline, GST_STATE_NULL);
-	gst_object_unref (GST_OBJECT (pipeline));
-	g_main_loop_unref (loop);
-
-	exit(0);
 }
 
 gint main(gint argc, gchar *argv[])
@@ -184,5 +181,4 @@ gint main(gint argc, gchar *argv[])
     
     return ret;
 }
-
 
