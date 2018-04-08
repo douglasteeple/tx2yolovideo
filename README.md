@@ -11,7 +11,7 @@ Briefly:
 * tx2video.cpp: experimental - don't use
 * gst.sh: simple pipeline
 
-The yolo app is the most developed. Here is a screen shot:
+The yolo app is the most developed. It interleaves annotations which run at about 3FPS with the video stream. Here is a screen shot:
 
 <img height=50% width=50% src="./elephant.png"/>
 
