@@ -6,10 +6,7 @@ Briefly:
 
 * yolo.c: Darknet V3 gstreamer pipeline, that also will save stream as mp4, needs libgstyolo.so and libdarknes.so
 * yolo_objection_detection.cpp: darknet V2 C++ version
-* tegra-cam.py: actually not for TX2, kind of a webcam thing
-* httplaunch.c: experimantal - don't use
 * tx2video.cpp: experimental - don't use
-* gst.sh: simple pipeline
 
 The yolo app is the most developed. It interleaves annotations which run at about 3FPS with the video stream. Here is a screen shot:
 
