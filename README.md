@@ -13,7 +13,7 @@ Briefly:
 
 The yolo app is the most developed. Here is a screen shot:
 
-<img height=25% width=25% src="./elephant.png"/>
+<img height=50% width=50% src="./elephant.png"/>
 
 Super thanks to Joseph Redmon for darknet: https://pjreddie.com/darknet/yolo/
 
