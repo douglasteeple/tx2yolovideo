@@ -13,7 +13,7 @@ Briefly:
 
 The yolo app is the most developed. Here is a screen shot:
 
-[Elephant](./elephant.png)
+![elephant](./elephant.png)
 
 Super thanks to Joseph Redmon for darknet: https://pjreddie.com/darknet/yolo/
 
