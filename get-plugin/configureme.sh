@@ -1,0 +1,3 @@
+#!/bin/bash
+./configure CFLAGS="-Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -O4 -g -DOPENCV `pkg-config --cflags --libs opencv` `pkg-config --libs --cflags opencv` -L/usr/local/opencv-3.1.0/lib -lopencv_core -lopencv_videoio -lopencv_highgui -lGL -L/usr/lib/ -L/usr/lib/aarch64-linux-gnu/ -L/usr/lib/aarch64-linux-gnu/tegra/ `pkg-config --libs cuda-9.0` -DCUDNN -lcudnn -DGPU -I/usr/local/cuda-9.0/include/ -L/usr/local/cuda-9.0/lib64 -lcuda -lcudart -lcublas -lcurand -ltegra_hal -I$HOME3/Projects/darknet/include -I$HOME3/Projects/darknet/src -I/usr/include/gdk-pixbuf-2.0/ -L/usr/local/include/ -ldarknet -lstdc++ -ldl"
+
