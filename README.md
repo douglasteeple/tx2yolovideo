@@ -16,7 +16,7 @@ The yolo.c app is the most developed. It interleaves annotations which run at ab
 Or try this, click to view movie...:
 
 <center>
-<table width="50%">
+<table style="width:400px">
     <tr>
         <th>A Rough Night - Click to view movie...</th>
     </tr>
