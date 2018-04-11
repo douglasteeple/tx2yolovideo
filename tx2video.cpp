@@ -49,6 +49,7 @@ int main(int argc, char **argv)
           {"app",   no_argument, 		0, 'a'},
           {"xw",	no_argument,		0, 'b'},
           {"caption",required_argument, 0, 'c'},
+          {"demo",	required_argument,  0, 'd'},
           {"help",	no_argument,		0, 'h'},
           {0, 0, 0, 0}
         };
@@ -61,13 +62,14 @@ int main(int argc, char **argv)
 	char cfgfile[64] = {"yolo.cfg"};
 	char share[64] = {"/usr/local/share/darknetv2"};	// location of the cfg and weight files for
 	const char *yolo_object_detection = "yolo_object_detection -cfg=%s/cfg/%s -model=%s/cfg/%s -class_names=%s/data/%s -source=\"nvcamerasrc ! video/x-raw(memory:NVMM), width=(int)%d, height=(int)%d, format=(string)I420, framerate=(fraction)30/1 ! nvvidconv ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink\"";
+	char whichdemo[64] = {"detector demo"};	// segmenter demo, art, nightmare
 
 	opterr = 0;
 	/* getopt_long stores the option index here. */
 	int option_index = 0;
 
     // Retrieve the options:
-    while ( (c = getopt_long(argc, argv, "xywab3hm:f:n:", long_options, &option_index)) != -1 ) {  // for each option...
+    while ( (c = getopt_long(argc, argv, "xywab3hm:f:n:c:d:", long_options, &option_index)) != -1 ) {  // for each option...
         switch ( c ) {
          case 0:
           /* If this option sets a flag, do nothing else now. */
@@ -90,7 +92,8 @@ int main(int argc, char **argv)
 		  cout << "  exclusion, faceblur, facedetect, fisheye, kaleidoscope, marble, mirror, revtv, retinex, rippletv" << endl;
 		  cout << "  'textoverlay text=\"My text\" valignment=top halignment=left font-desc=\"Sans, 72\" shaded-background=true'" << endl;
 		  cout << "  pinch, stretch, streaktv, solarize, shagadelictv, sphere, twirl, tunnel, waterripple" << endl;
-          return 0;
+		  cout << "Detector: \"detector demo\" \"segmenter demo\", art, nightmare" << endl;          
+		  return 0;
 
         case 'x':
           sprintf(sink, "ximagesink");
@@ -115,6 +118,10 @@ int main(int argc, char **argv)
           sprintf(sink, "tee name=t ! videoconvert ! queue ! ximagesink t. ! vp8enc ! webmmux ! shout2send ip=%s port=%s password=hackme mount=/tx2.webm", host, port);
           cv = false;
 		  break;
+
+		case 'd':
+			strcpy(whichdemo, optarg);	// "detector demo" "segmenter demo", art, nightmare
+			break;
 
         case 'm':
           strcpy(modelfile, optarg);
@@ -205,7 +212,7 @@ int main(int argc, char **argv)
 		}
 		system(gst);
 	} else if (doyolo3) {
-		sprintf(gst, "darknet detector demo %s/cfg/%s %s/cfg/%s %s/cfg/%s \"nvcamerasrc ! video/x-raw(memory:NVMM), width=(int)1280, height=(int)720,format=(string)I420, framerate=(fraction)30/1 ! nvvidconv flip-method=0 ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! %s\"", share, namesfile, share, cfgfile, share, modelfile, sink);
+		sprintf(gst, "darknet %s %s/cfg/%s %s/cfg/%s %s/cfg/%s \"nvcamerasrc ! video/x-raw(memory:NVMM), width=(int)1280, height=(int)720,format=(string)I420, framerate=(fraction)30/1 ! nvvidconv flip-method=0 ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! %s\"", whichdemo, share, namesfile, share, cfgfile, share, modelfile, sink);
 		if (verbose_flag) {
 			cout << gst << endl;
 		}
@@ -219,4 +226,3 @@ int main(int argc, char **argv)
 	}
     return 0;
 }
-
