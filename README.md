@@ -32,8 +32,11 @@ Or try this, click to view movie...:
 Super thanks to Joseph Redmon for darknet: https://pjreddie.com/darknet/yolo/
 
 _YOLOv3: An Incremental Improvement
+
     Redmon, Joseph and Farhadi, 
+    
     AliarXiv,
-  2018_
+    
+  2018
 
 
