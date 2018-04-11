@@ -13,7 +13,7 @@ The yolo.c app is the most developed. It interleaves annotations which run at ab
 
 <img height=50% width=50% src="./elephant.png"/>
 
-Or try this:
+Or try this, click to view movie...:
 
 <center>
 <table>
@@ -22,7 +22,7 @@ Or try this:
     </tr>
     <tr>
         <td>
-            <a href="https://drive.google.com/file/d/1a1iGqHlP0HqdaSRxQtOf3K8rEJaH9Oxv/view?usp=sharing" target=_blank><img src="night.png"/></a>
+            <a href="https://drive.google.com/file/d/1a1iGqHlP0HqdaSRxQtOf3K8rEJaH9Oxv/view?usp=sharing" target=_blank><img width="50%" src="night.png"/></a>
         </td>
     </tr>
 </table>
