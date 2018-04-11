@@ -22,7 +22,7 @@ Or try this, click to view movie...:
     </tr>
     <tr>
         <td>
-            <a href="https://drive.google.com/file/d/1a1iGqHlP0HqdaSRxQtOf3K8rEJaH9Oxv/view?usp=sharing" target=_blank><img  src="night.png"/></a>
+            <a href="https://drive.google.com/file/d/1a1iGqHlP0HqdaSRxQtOf3K8rEJaH9Oxv/view?usp=sharing" target=_blank><img  width=50% src="night.png"/></a>
         </td>
     </tr>
 </table>
