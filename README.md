@@ -31,10 +31,9 @@ Or try this, click to view movie...:
 
 Super thanks to Joseph Redmon for darknet: https://pjreddie.com/darknet/yolo/
 
-@article{yolov3,
-  title={YOLOv3: An Incremental Improvement},
-  author={Redmon, Joseph and Farhadi, Ali},
-  journal = {arXiv},
-  year={2018}
-}
+_YOLOv3: An Incremental Improvement
+    Redmon, Joseph and Farhadi, 
+    AliarXiv,
+  2018_
+
 
